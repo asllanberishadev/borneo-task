@@ -99,7 +99,7 @@ export class DataTableComponent implements OnInit, OnDestroy {
 				formatter: (value: any) => value
 			},
 			{
-				name: 'Post id',
+				name: 'Post Id',
 				sortable: true,
 				value: (data: Comment) => data.postId.toString(),
 				formatter: (value: any) => value
@@ -109,9 +109,9 @@ export class DataTableComponent implements OnInit, OnDestroy {
 		// adding 20 more cols for demo purpose
 		for (let i = 0; i < 20; i++) {
 			this.tableColumns.push({
-				name: `col${i}`,
+				name: `Col ${i}`,
 				sortable: true,
-				value: (data: Comment) => `col${i}-value`,
+				value: (data: Comment) => `col ${i} value`,
 				formatter: (value: any) => value
 			});
 		}
