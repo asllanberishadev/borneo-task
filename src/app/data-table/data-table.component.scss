@@ -1,0 +1,98 @@
+.table-container {
+	display: block;
+	max-width: 100%;
+	position: relative;
+	max-height: 400px;
+	overflow-y: auto;
+	overflow-x: auto;
+}
+
+.main-table {
+	width: 100%;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+thead {
+	position: sticky;
+	top: 0;
+	z-index: 20;
+	background-color: #f1f1f1;
+}
+
+thead th,
+tbody td {
+	padding: 8px;
+	text-align: left;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+
+th,
+td {
+	width: 150px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.fixed {
+	position: sticky;
+	z-index: 10;
+	background-color: #f1f1f1;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.fixed:nth-child(1) {
+	width: 60px;
+	left: 0;
+}
+
+.fixed:nth-child(2) {
+	width: 200px;
+	left: 60px;
+}
+
+.fixed:nth-child(3) {
+	width: 250px;
+	left: 260px;
+}
+
+/* Scrollable columns */
+th:nth-child(n + 4),
+td:nth-child(n + 4) {
+	width: 150px;
+}
+
+/* Header styles */
+thead th {
+	background-color: #ddd;
+}
+
+/* Striped rows */
+tbody tr:nth-child(even) {
+	background-color: #f5f5f5;
+}
+
+tbody tr:nth-child(odd) {
+	background-color: #ffffff;
+}
+
+/* For responsiveness */
+@media (max-width: 768px) {
+	th,
+	td {
+		width: 100px;
+	}
+
+	.fixed:nth-child(2) {
+		left: 60px;
+	}
+
+	.fixed:nth-child(3) {
+		left: 160px;
+	}
+}
+
+.cursor-pointer {
+	cursor: pointer;
+}

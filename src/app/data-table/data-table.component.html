@@ -1,0 +1,34 @@
+<input type="text" placeholder="Search" [(ngModel)]="searchInputSignal" />
+<div class="table-container">
+    <table class="main-table">
+        <thead>
+            <tr>
+                @for(column of tableColumns; track column) {
+                <th scope="row"
+                    class="{{ column.fixedCol ? 'fixed' : '' }} {{ column.sortable ? 'cursor-pointer' : '' }}"
+                    (click)="setSortColumn(column)">
+                    {{ column.name }}
+                    <span *ngIf="column.sortable && sortColumn === column">
+                        <span *ngIf="sortType === SortType.ASC">&#x25b4;</span>
+                        <span *ngIf="sortType === SortType.DESC">&#x25be;</span>
+                    </span>
+                </th>
+                }
+            </tr>
+
+        </thead>
+        <tbody>
+            @for(comment of getComments(); track comment) {
+            <tr>
+                @for(column of tableColumns; track column;) {
+                <td scope="row" class="{{ column.fixedCol ? 'fixed' : '' }}">
+                    <span>
+                        {{ column.value | generalPipe : comment }}
+                    </span>
+                </td>
+                }
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
